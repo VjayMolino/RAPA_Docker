@@ -1,0 +1,12 @@
+name: prot_state
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - ambertools=22.0
+  - anytree
+  - compilers
+  - mdtraj
+  - psutil
+  - python=3.7
+
