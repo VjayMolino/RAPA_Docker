@@ -16,7 +16,7 @@ cd RAPA_Docker
 docker build -t kurtzmanlab/rapa .
 ```
 
-> **Note:** This image is based on **Ubuntu 20.04** instead of an Anaconda image because some packages (*mdtraj* and *abertools*) cannot be installed using Anaconda.  
+> **Note:** This image is based on **Ubuntu 22.04** instead of an Anaconda image because some packages (*mdtraj* and *abertools*) cannot be installed using Anaconda.  
 
 ---
 
@@ -58,13 +58,14 @@ Use the following commands to run **RAPA**:
 
 - **Run RAPA with an input file:**  
   ```sh
-  docker run --rm kurtzmanlab/rapa -i input.pdb -o out_prefix
+  docker run --rm -v $(pwd):/app/output kurtzmanlab/rapa -i input.pdb -o out_prefix
   ```
 
 - **Check usage options:**  
   ```sh
   docker run --rm kurtzmanlab/rapa -h
   ```
+> **Note:** Make sure that the input pdb file is in the current working directory  
 
 ---
 
