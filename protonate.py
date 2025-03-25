@@ -40,7 +40,7 @@ import shlex
 import glob
 import csv
 
-
+os.chdir("/app/output") # change the directory to the dockerimages input/output directory
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--input", type=str, help="Input PDB file", required=True)
 parser.add_argument("-o", "--output", type=str, help="Output prefix", required=True)
@@ -68,7 +68,8 @@ initial_time = timeit.default_timer()
 parent_directory = os.path.abspath(os.getcwd())
 target_directory = inifile.split('.pdb')[0]
 target_directory_path = os.path.join(parent_directory, target_directory)
-base_path = os.path.split(os.path.abspath(__file__))[0]
+#base_path = os.path.split(os.path.abspath(__file__))[0]
+base_path = "/app/rapa"/ #base path containing the src in the docker image
 reduce_hetatm_db_filepath = os.path.join(base_path, "reduce_wwPDB_het_dict.txt")
 PES_data_filepath = os.path.join(base_path, "OOdist_OHOangle_E_smooth_interpolate.csv")
 
