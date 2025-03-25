@@ -1,23 +1,71 @@
-This is a guide on how to create a docker container for the RAPA code and how to distribute it.
+# **RAPA Docker Guide**  
 
-1. Install docker in your system. The installation guide can be found in https://docs.docker.com/desktop/setup/install.
+This guide explains how to create a Docker container for **RAPA**, distribute it, and run it efficiently.  
 
-2. Create an docker container for RAPA. This particular image is run on Ubuntu-20.04 image.
-This was done instead of using an Anacaonda image, since some packages (mdtraj and abertools) cannot be installed if using an Anaconda image.
-    $ cd RAPA_Docker
-    $ docker build -t KurtzmanLab/RAPA .
+## **Prerequisites**  
+Ensure you have **Docker** installed on your system. You can find the installation guide [here](https://docs.docker.com/desktop/setup/install).  
 
-3. Make sure the image is built correctly. KurtzmanLab/RAPA should be on the list
-    $ docker images
-   
-4. Save the docker image as a tar file for dictribution.
-    $ docker save --output KurtzmanLab_RAPA.tar Kurtzmanlab/RAPA
-   
-5. Now, you can distribute the docker image. To load the image:
-    $ docker load --input KurztmanLab_RAPA.tar
+---
 
-6.To use RAPA
-    $ docker run --rm KurztmanLab/RAPA -i input.pdb -o out_prefix
-    $ docker run --rm KurztmanLab/RAPA -h #for usage
+## **1. Build the RAPA Docker Image**  
+
+Navigate to the `RAPA_Docker` directory and build the Docker image:  
+
+```sh
+cd RAPA_Docker
+docker build -t KurtzmanLab/RAPA .
+```
+
+> **Note:** This image is based on **Ubuntu 20.04** instead of an Anaconda image because some packages (*mdtraj* and *abertools*) cannot be installed using Anaconda.  
+
+---
+
+## **2. Verify the Docker Image**  
+
+Check if the image was built successfully:  
+
+```sh
+docker images
+```
+
+Look for **KurtzmanLab/RAPA** in the list of available images.  
+
+---
+
+## **3. Save the Docker Image for Distribution**  
+
+To distribute the Docker image, save it as a `.tar` file:  
+
+```sh
+docker save --output KurtzmanLab_RAPA.tar KurtzmanLab/RAPA
+```
+
+---
+
+## **4. Load the Docker Image on Another System**  
+
+To load the Docker image from the `.tar` file:  
+
+```sh
+docker load --input KurtzmanLab_RAPA.tar
+```
+
+---
+
+## **5. Running RAPA**  
+
+Use the following commands to run **RAPA**:  
+
+- **Run RAPA with an input file:**  
+  ```sh
+  docker run --rm KurtzmanLab/RAPA -i input.pdb -o out_prefix
+  ```
+
+- **Check usage options:**  
+  ```sh
+  docker run --rm KurtzmanLab/RAPA -h
+  ```
+
+---
 
 
