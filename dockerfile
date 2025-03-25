@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 ubuntu:22.04
+FROM  ubuntu:22.04
 
 RUN apt-get update && \
     apt-get install -y \
@@ -26,7 +26,10 @@ RUN bash Anaconda3-2024.10-1-Linux-x86_64.sh -b -p /opt/anaconda3
 ENV PATH="/opt/anaconda3/bin:$PATH"
 
 # Set the working directory
-WORKDIR /Users/vjaymolino/test-rapa
+WORKDIR /app/rapa
+
+#create an directory for input/output file
+RUN mkdir -p /app/output
 
 
 # Copy the environment.yml file
