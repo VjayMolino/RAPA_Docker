@@ -37,7 +37,7 @@ Look for **kurtzmanlab/rapa** in the list of available images.
 To distribute the Docker image, save it as a `.tar` file:  
 
 ```sh
-docker save --output kurtzmanlab_rapa.tar kurtzmanlab/rapa
+docker save kurtzmanlab/rapa | gzip kurtzmanlab_rapa.tar.gz
 ```
 
 ---
@@ -47,7 +47,7 @@ docker save --output kurtzmanlab_rapa.tar kurtzmanlab/rapa
 To load the Docker image from the `.tar` file:  
 
 ```sh
-docker load --input kurtzmanlab_rapa.tar
+docker load --input kurtzmanlab_rapa.tar.gz
 ```
 
 ---
