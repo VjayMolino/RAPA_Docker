@@ -69,7 +69,7 @@ parent_directory = os.path.abspath(os.getcwd())
 target_directory = inifile.split('.pdb')[0]
 target_directory_path = os.path.join(parent_directory, target_directory)
 #base_path = os.path.split(os.path.abspath(__file__))[0]
-base_path = "/app/rapa"/ #base path containing the src in the docker image
+base_path = "/app/rapa/" #base path containing the src in the docker image
 reduce_hetatm_db_filepath = os.path.join(base_path, "reduce_wwPDB_het_dict.txt")
 PES_data_filepath = os.path.join(base_path, "OOdist_OHOangle_E_smooth_interpolate.csv")
 
