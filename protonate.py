@@ -44,12 +44,18 @@ os.chdir("/app/output") # change the directory to the dockerimages input/output 
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--input", type=str, help="Input PDB file", required=True)
 parser.add_argument("-o", "--output", type=str, help="Output prefix", required=True)
+parser.add_argument("-c","--cutoff", type=float, help="Energy cutoff, default=2.0", required=False )
 parser.add_argument("-u", "--use", type=str, help="HETATM file", required=False)
 args = parser.parse_args()
 inifile = args.input
 out_prefix = args.output
 het_atms_to_be_used = args.use
-degenerate_states_e_cutoff = 2.0
+if args.cutoff:
+    degenerate_states_e_cutoff = args.cutoff
+else:
+    degenerate_states_e_cutoff = 2.0
+
+necessary_functions.degenerate_states_e_cutoff = degenerate_states_e_cutoff
 
 # Using colors from https://stackoverflow.com/questions/39473297/how-do-i-print-colored-output-with-python-3
 if not os.path.exists(inifile):
