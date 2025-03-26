@@ -58,8 +58,9 @@ Use the following commands to run **RAPA**:
 
 - **Run RAPA with an input file:**  
   ```sh
-  docker run --rm -v $(pwd):/app/output kurtzmanlab/rapa -i input.pdb -o out_prefix
+  docker run --rm -v $(pwd):/app/output kurtzmanlab/rapa -i input.pdb -o out_prefix -c degenerate_energy_states_cutoff
   ```
+  > **Note:** if -c is not supplied, the default value is 2.0 kcal/mol  
 
 - **Check usage options:**  
   ```sh
