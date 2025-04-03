@@ -16,7 +16,7 @@ cd RAPA_Docker
 docker build -t kurtzmanlab/rapa .
 ```
 
-> **Note:** This image is based on **Ubuntu 22.04** instead of an Anaconda image because some packages (*mdtraj* and *ambertools*) cannot be installed using Anaconda.  
+> **Note:** This image is based on minicond3.
 
 ---
 
