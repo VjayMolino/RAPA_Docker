@@ -16,7 +16,7 @@ cd RAPA_Docker
 docker build -t kurtzmanlab/rapa .
 ```
 
-> **Note:** This image is based on minicond3.
+> **Note:** This image is based on miniconda3.
 
 ---
 
