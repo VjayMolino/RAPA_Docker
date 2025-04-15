@@ -36,7 +36,7 @@ import psutil
 # heavy to heavy atom distance cutoff and Cys disulfide bridge cutoff
 h_bond_heavy_atm_cutoff = 0.38  # mdtraj uses nm instead of Angstroms. We will be using 3.8 Angstroms (0.38 nm) for heavy-to-heavy atom cutoff.
 cys_disulfide_bond_cutoff = 0.23  # mdtraj uses nm instead of Angstroms. We will be using 2.3 Angstroms (0.23 nm) for cys-s---s-cys cutoff.
-degenerate_states_e_cutoff = 2.0
+degenerate_states_e_cutoff = 1.0
 
 ##############################################################
 # implemented from https://stackoverflow.com/questions/27930038/how-to-define-global-function-in-python

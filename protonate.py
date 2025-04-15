@@ -44,7 +44,7 @@ os.chdir("/app/output") # change the directory to the dockerimages input/output 
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--input", type=str, help="Input PDB file", required=True)
 parser.add_argument("-o", "--output", type=str, help="Output prefix", required=True)
-parser.add_argument("-c","--cutoff", type=float, help="Energy cutoff, default=2.0", required=False )
+parser.add_argument("-c","--cutoff", type=float, help="Energy cutoff, default=1.0", required=False )
 parser.add_argument("-u", "--use", type=str, help="HETATM file", required=False)
 args = parser.parse_args()
 inifile = args.input
@@ -53,7 +53,7 @@ het_atms_to_be_used = args.use
 if args.cutoff:
     degenerate_states_e_cutoff = args.cutoff
 else:
-    degenerate_states_e_cutoff = 2.0
+    degenerate_states_e_cutoff = 1.0
 
 necessary_functions.degenerate_states_e_cutoff = degenerate_states_e_cutoff
 
